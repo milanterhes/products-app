@@ -1,12 +1,10 @@
-import { SET_PRODUCTS } from "./types";
+import actionTypes from "./types";
 
 const setProducts = products => ({
-  type: SET_PRODUCTS,
+  type: actionTypes.SET_PRODUCTS,
   payload: {
     products
   }
 });
 
-export default {
-  setProducts
-};
+export { setProducts };

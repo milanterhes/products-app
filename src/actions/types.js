@@ -1,5 +1,7 @@
 const SET_PRODUCTS = "SET_PRODUCTS";
 
-export default {
+const actionTypes = {
   SET_PRODUCTS
 };
+
+export default actionTypes;
