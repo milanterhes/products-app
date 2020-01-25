@@ -23,18 +23,22 @@ export default function ProductList({ products }) {
     <Div>
       <h1>Overview</h1>
       <Grid>
-        {products.map(({ title, price, images }) => (
+        {products.map(({ id, title, price, images }) => (
           <ProductOverview
+            key={id}
             title={title}
             price={price}
             thumb={images[0].thumb}
+            id={id}
           />
         ))}
-        {products.map(({ title, price, images }) => (
+        {products.map(({ id, title, price, images }) => (
           <ProductOverview
+            key={id}
             title={title}
             price={price}
             thumb={images[0].thumb}
+            id={id}
           />
         ))}
       </Grid>

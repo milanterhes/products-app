@@ -1,9 +1,10 @@
 import React from "react";
 import ProductListContainer from "./components/container/ProductListContainer";
+import ProductDetails from "./components/presentational/ProductDetails";
 import Nav from "./components/presentational/Nav";
 import { Global, css } from "@emotion/core";
 import { ThemeProvider } from "emotion-theming";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const theme = {
   mainColor: "#ff4500"
@@ -23,8 +24,15 @@ function App() {
           }
         `}
       />
-      <Nav />
-      <ProductListContainer />
+      <Router>
+        <Nav />
+        <Switch>
+          <Route exact path="/">
+            <ProductListContainer />
+          </Route>
+          <Route path="/:id" component={ProductDetails} />
+        </Switch>
+      </Router>
     </ThemeProvider>
   );
 }
