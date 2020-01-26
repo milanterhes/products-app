@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import ProductOverview from "./ProductOverview";
+import Grid from "./Grid/Grid";
 
 const Div = styled.div`
   top: 10vh;
@@ -11,27 +12,11 @@ const Div = styled.div`
   }
 `;
 
-const Grid = styled.div`
-  display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
-  max-width: 100%;
-`;
-
 export default function ProductList({ products }) {
   return (
     <Div>
       <h1>Overview</h1>
       <Grid>
-        {products.map(({ id, title, price, images }) => (
-          <ProductOverview
-            key={id}
-            title={title}
-            price={price}
-            thumb={images[0].thumb}
-            id={id}
-          />
-        ))}
         {products.map(({ id, title, price, images }) => (
           <ProductOverview
             key={id}
