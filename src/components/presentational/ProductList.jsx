@@ -13,20 +13,28 @@ const Div = styled.div`
 `;
 
 export default function ProductList({ products }) {
-  return (
-    <Div>
-      <h1>Overview</h1>
-      <Grid>
-        {products.map(({ id, title, price, images }) => (
-          <ProductOverview
-            key={id}
-            title={title}
-            price={price}
-            thumb={images[0].thumb}
-            id={id}
-          />
-        ))}
-      </Grid>
-    </Div>
-  );
+  if (products.length) {
+    return (
+      <Div>
+        <h1>Overview</h1>
+        <Grid>
+          {products.map(({ id, title, price, images }) => (
+            <ProductOverview
+              key={id}
+              title={title}
+              price={price}
+              thumb={images[0].thumb}
+              id={id}
+            />
+          ))}
+        </Grid>
+      </Div>
+    );
+  } else {
+    return (
+      <Div>
+        <h1>Loading...</h1>
+      </Div>
+    );
+  }
 }
