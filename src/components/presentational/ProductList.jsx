@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import ProductOverview from "./ProductOverview";
+import ProductOverview from "./ProductListItem";
 import Grid from "./Grid/Grid";
 
 const Div = styled.div`

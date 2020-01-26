@@ -6,6 +6,7 @@ import Grid from "./Grid/Grid";
 import FourtyColumn from "./Grid/FourtyColumn";
 import Gallery from "./Product/Gallery";
 import styled from "@emotion/styled";
+import CommentsContainer from "../container/CommentsContainer";
 
 const ProductData = styled.div`
   text-align: left;
@@ -24,6 +25,7 @@ const ProductData = styled.div`
     h2 {
       float: left;
       margin-bottom: 0;
+      max-width: 75%;
     }
     b {
       position: absolute;
@@ -58,6 +60,7 @@ export default function ProductDetails() {
           <p>{product.specification}</p>
         </ProductData>
       </FourtyColumn>
+      <CommentsContainer id={id} />
     </Grid>
   );
 }

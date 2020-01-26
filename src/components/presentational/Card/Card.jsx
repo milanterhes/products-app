@@ -10,6 +10,7 @@ const Card = styled.div`
   width: 250px;
   margin-top: 15px;
   position: relative;
+  min-height: 250px;
 `;
 
 const Thumbnail = styled.img`

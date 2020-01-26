@@ -7,4 +7,11 @@ const setProducts = products => ({
   }
 });
 
-export { setProducts };
+const addComment = comment => ({
+  type: actionTypes.ADD_COMMENT,
+  payload: {
+    comment
+  }
+});
+
+export { setProducts, addComment };
