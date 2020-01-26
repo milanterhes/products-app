@@ -40,7 +40,6 @@ const BackButton = styled.div`
 
 export default function Nav() {
   let location = useLocation();
-  console.log(location);
   return (
     <NavBG>
       {location.pathname !== "/" && (

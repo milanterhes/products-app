@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import NewComment from "./NewComment";
+import { addComment } from "../../../actions/index";
+import { useDispatch } from "react-redux";
 
-export default function CommentList({ comments }) {
+export default function CommentList({ comments, id }) {
+  const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const submitComment = comment => {
+    setOpen(false);
+    dispatch(addComment({ ...comment, id }));
+  };
   return (
     <div
       style={{
@@ -10,17 +20,21 @@ export default function CommentList({ comments }) {
     >
       <hr />
       <h2>Comments</h2>
-      {comments.map(comment => (
-        <div
-          style={{
-            borderTop: "1px solid black",
-            borderBottom: "1px solid black"
-          }}
-        >
-          <h3>{comment.name}</h3>
-          <p>{comment.text}</p>
-        </div>
-      ))}
+      <button onClick={() => setOpen(true)}>Add new comment</button>
+      <NewComment open={open} setOpen={setOpen} submitComment={submitComment} />
+      {comments &&
+        comments.map((comment, idx) => (
+          <div
+            key={idx}
+            style={{
+              borderTop: "1px solid black",
+              borderBottom: "1px solid black"
+            }}
+          >
+            <h3>{comment.name}</h3>
+            <p>{comment.text}</p>
+          </div>
+        ))}
     </div>
   );
 }

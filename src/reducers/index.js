@@ -29,10 +29,19 @@ function productsReducers(state = initialState, action) {
       const comments = { ...state.comments };
       const { name, text, id } = action.payload.comment;
 
-      for (let key in comments) {
-        if (comments.hasOwnProperty(key) && id === key) {
-          comments[id] = { name, text };
+      if (comments.hasOwnProperty(id)) {
+        for (let key in comments) {
+          if (id === key) {
+            comments[id].push({ name, text });
+          }
         }
+      } else {
+        comments[id] = [
+          {
+            name,
+            text
+          }
+        ];
       }
 
       return {
